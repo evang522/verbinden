@@ -1,0 +1,15 @@
+include header.pug
+main(role='main')
+    h1.header.largeSpaceAbove Sign In
+section(role='region')
+    form.center(action='/login' method='POST')
+        div.moderateSpaceAbove
+            label(for='email') Email:
+            input.leftSpace(name='email' id='email')
+        div.spaceAbove
+            label(for='password') Password:
+            input.leftSpace(name='password' type='password' id='password')
+        button.generalButton.spaceAbove(type='submit') Submit
+    div.moderateSpaceAbove
+    p.center Not a user?
+    a.centerBlock.center(href='/register') Register 

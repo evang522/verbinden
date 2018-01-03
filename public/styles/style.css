@@ -1,0 +1,104 @@
+/* Global Resets */
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav {
+    height:3em;
+    background-color: #c69e23;
+    border-bottom:2px solid black;
+}
+
+.headerUl {
+    display:flex;
+    line-height:45px;
+    list-style:none;
+}
+
+.headerUl li{
+    padding-left:15px;
+}
+
+.headerUl a:link{
+    color:white;
+    text-decoration:none;
+}
+
+.headerUl a:visited {
+    color:white;
+    text-decoration:none;
+}
+
+.header {
+    text-align:center;
+    font-size:2em;
+    font-weight:bold;
+}
+
+
+/* Global Spacing and Centering CSS */
+
+.spaceAbove {
+    margin-top:1em;
+}
+
+.largeSpaceAbove {
+    margin-top:3em;
+}
+
+.spaceBelow {
+    margin-bottom:1em;
+}
+
+.largeSpaceBelow {
+    margin-bottom:3em;
+}
+
+.moderateSpaceAbove {
+    margin-top:5em;
+}
+
+.significantSpaceAbove {
+    margin-top:8em;
+}
+
+
+
+input {
+    padding:10px;
+    width:20em;
+    font-size:1.1em;
+}
+
+.center {
+    text-align:center;
+}
+
+.centerBlock {
+    display:block;
+    margin:0 auto;
+}
+
+.leftSpace {
+    margin-left:1em;
+}
+
+.rightSpace {
+    margin-right:1em;
+}
+
+label {
+    font-size:1.2em;
+}
+
+.generalButton {
+    width:7em;
+    height:2.8em;
+    border:none;
+    border-radius:4px;
+    font-size:1.1em;
+}
