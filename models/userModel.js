@@ -11,10 +11,16 @@ let UserSchema = mongoose.Schema( {
     name: {
         type:String,
     },
+    lastname: {
+        type:String,
+    },
     password: {
         type:String,
     },
     email: {
+        type:String,
+    },
+    posts: {
         type:String,
     },
 });

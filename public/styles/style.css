@@ -5,45 +5,22 @@
     padding:0;
     box-sizing:border-box;
     font-family: 'Roboto', sans-serif;
-}
-
-.nav {
-    height:3em;
-    background-color: #c69e23;
-    border-bottom:2px solid black;
-}
-
-.headerUl {
-    display:flex;
-    line-height:45px;
-    list-style:none;
-}
-
-.headerUl li{
-    padding-left:15px;
-}
-
-.headerUl a:link{
-    color:white;
-    text-decoration:none;
-}
-
-.headerUl a:visited {
-    color:white;
-    text-decoration:none;
-}
-
-.header {
-    text-align:center;
-    font-size:2em;
-    font-weight:bold;
+    letter-spacing:-1px;
 }
 
 
 /* Global Spacing and Centering CSS */
 
+.brandLogo {
+    font-family: 'Abril Fatface', cursive;
+}
+
 .spaceAbove {
     margin-top:1em;
+}
+
+.mediumSpaceAbove {
+    margin-top:2em;
 }
 
 .largeSpaceAbove {
@@ -70,7 +47,7 @@
 
 input {
     padding:10px;
-    width:20em;
+    width:82%;
     font-size:1.1em;
 }
 
@@ -101,4 +78,129 @@ label {
     border:none;
     border-radius:4px;
     font-size:1.1em;
+    color:white;
+    background-color:black;
+}
+
+.radius {
+    border-radius:5px;
+}
+
+
+/* Header CSS  */
+body {
+    background-color:#f9f9f9;
+}
+.nav {
+    height:3em;
+    background-color: #c69e23;
+    border-bottom:2px solid black;
+    position:fixed;
+    width:100%;
+    top:0;
+}
+
+.headerUl {
+    display:flex;
+    line-height:45px;
+    list-style:none;
+}
+
+.headerUl>li{
+    padding-left:15px;
+    color:white;
+}
+
+.headerUl a:link{
+    color:white;
+    text-decoration:none;
+}
+
+.headerUl a:visited {
+    color:white;
+    text-decoration:none;
+}
+
+.js-triggerButton {
+    margin-left:10px;
+    border:none;
+    background-color:transparent;
+    color:white;
+    font-size:1em;
+    padding-left:3px;
+    padding-right:3px;
+}
+.header {
+    text-align:center;
+    font-size:2em;
+    font-weight:bold;
+}
+
+.liDropdown {
+    list-style:none;
+    height:40px;
+    line-height:40px;
+    width:8em;
+}
+
+.ulDropdown {
+    background-color:#c69e23;
+    margin-top:1.8em;
+}
+
+.ulDropdown li:hover {
+    background-color:#ccaf59;
+    cursor:pointer;
+}
+
+
+.dropDownLi {
+    outline:none;
+}
+.dropDownLi:hover {
+    background-color:#ccaf59;
+    cursor:pointer;
+}
+
+
+
+/* POST CSS */
+
+
+
+.postContCont {
+    display:flex;
+    justify-content:center;
+}
+.postCont {
+    display:flex;
+    justify-content:center;
+    width:70%;
+}
+
+.postCont form {
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.postCont input {
+    border-radius:7px;
+    height:2.4em;
+    box-sizing:border-box;
+    width:60%;
+}
+
+.postCont button {
+    border:none;
+    width:4em;
+    height:2.4em;
+    border-radius:5px;
+    background-color:black;
+    color:white;
+    margin-top:5px;
+}
+
+@media screen and (max-width:400px) {
+
 }

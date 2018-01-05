@@ -1,15 +1,25 @@
 include header.pug
 main(role='main')
-    h1.header.largeSpaceAbove Sign In
+    h1.header.spaceAbove Sign In
 section(role='region')
-    form.center(action='/login' method='POST')
+    form.center(method='POST' action='/login')
         div.moderateSpaceAbove
-            label(for='email') Email:
-            input.leftSpace(name='email' id='email')
-        div.spaceAbove
-            label(for='password') Password:
-            input.leftSpace(name='password' type='password' id='password')
-        button.generalButton.spaceAbove(type='submit') Submit
+            label(for='email') Email: #[input.radius.leftSpace.js-listenInput(name='username', id='email', autocomplete="off")]
+        div.spaceAbove.js-hide
+            br
+            label(for='password') Password: #[input.radius.leftSpace.js-next(name='password' type='password' id='password')]
+            br
+            button.generalButton.spaceAbove Submit
     div.moderateSpaceAbove
-    p.center Not a user?
-    a.centerBlock.center(href='/register') Register 
+    h3.center Not a user?
+    a.centerBlock.center(href='/register') Register
+script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+script.
+    $('.js-hide').css('display','none');
+    $('.js-listenInput').keydown(function() {
+        if (event.key == 'Enter') {
+            event.preventDefault();
+            $('.js-hide').toggle('slow');
+            $('.js-next').focus();
+        }
+    })

@@ -9,6 +9,7 @@ let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 let LocalStrategy = require('passport-local').Strategy;
 
+
 mongoose.connect('mongodb://localhost/verbinden');
 mongoose.connection.on('connected', () => {
     console.log('DB Connected');
@@ -17,18 +18,18 @@ mongoose.connection.on('connected', () => {
 app.set('view engine','pug');
 app.set('views','./views');
 
+// Set Public Folder
+app.use(express.static('public'));
+
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({
     extended: true
   }));
 
-// Set Public Folder
-app.use(express.static('public'));
-
-
 // Cookie Parser Middleware
 app.use(cookieParser());
 
+//Express Session MIddleWare
 app.use(session({
     secret:'secret',
     saveUninitialized: true,
@@ -62,8 +63,7 @@ app.use(passport.session());
 app.use((req,res,next) => {
     res.locals.user = req.user || null;
     next();
-});
-
+  });
 
 
 // Main GET Route
@@ -84,6 +84,7 @@ app.get('/register', (req,res) => {
 //Main Post route 
 app.post('/register', (req,res) => {
 let name = req.body.name;
+let lastname = req.body.lastname;
 let email = req.body.email;
 let password = req.body.password;
 let password2 = req.body.password2;
@@ -105,6 +106,7 @@ if(errors) {
 } else {
     let newUser = new User({
         name:name,
+        lastname:lastname,
         email:email,
         password:password,
     });
@@ -153,12 +155,28 @@ passport.use(new LocalStrategy(
     
     
 
+// app.post('/login', function(req,res,next) {
+//     console.log(req.url);
+//     console.log(req.body);
+//     passport.authenticate('local', function (err,user,info) {
+//         console.log('authentication info');
+//         console.log(err);
+//         console.log(user);
+//         console.log(info);
+//     })(req,res,next);
+// });
+
 app.post('/login',
 passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/loginerror', failureFlash:false}),
 (req, res) => {
-  res.redirect('/');
+  res.render('/');
 });
 
+
+app.get('/logout', (req,res) => {
+    req.logout();
+    res.redirect('/');
+})
 
 app.get('/logout', (req,res) => {
        req.logout();

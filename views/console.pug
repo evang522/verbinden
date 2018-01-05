@@ -1,1 +1,12 @@
 include header.pug
+h3.center Hello, #{user.name}
+div.largeSpaceAbove.buttonTriggerCont
+    each post, l in user.post
+        li post[l]
+    button.generalButton.centerBlock.js-PostTrigger New Post
+div.spaceAbove.postContCont
+script.
+    $('.js-PostTrigger').click(() => {
+        $('.js-PostTrigger').toggle();
+        $('.postContCont').prepend('<div class="postCont"><form action="/posts/post" method="POST"><input name="body" class="postInput" placeholder="New Post...">  </input><button class="postButton">Post</button></form></div>');
+    })

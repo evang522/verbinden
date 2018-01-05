@@ -2,13 +2,29 @@ html(lang='en')
 	head
 		title Verbinden
 		link(rel='stylesheet', href='/styles/style.css', type='text/css')
-		link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css?family=Roboto|Abril+Fatface" rel="stylesheet")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 	body
 		header.nav(role='banner')
 			ul.headerUl
-				li
-					a(href='/') Home
-				li
-					a(href='/profile') My Profile
-				li
-					a(href='/searchothers') Others
+				if user
+					li
+						a(href='/') Home
+					li
+						a(href='/profile') My Profile
+					li
+						a(href='/searchothers') Others
+					button.dropDownLi.js-triggerButton  Options ▼
+						ul.ulDropdown
+							li.liDropdown
+								a(href='/preferences') Preferences
+							li.liDropdown
+								a(href='/logout') Logout
+		h1.brandLogo.mediumSpaceAbove.center.header Verbinden
+		div.largeSpaceBelow
+script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+script.
+	$('.ulDropdown').css('display','none');
+	$('.js-triggerButton').click(() => {
+		$('.ulDropDown').toggle();
+	})

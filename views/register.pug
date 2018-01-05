@@ -1,18 +1,21 @@
 include header.pug
 main(role='main')
-    h1.header.largeSpaceAbove Verbinden Registration
+    h1.header.largeSpaceAbove Register New User
 section(role='region')
     form.center(action='/register' method='POST')
         div.moderateSpaceAbove
-            label(for='name') Name:
+            label(for='name') First Name:
             input.leftSpace(name='name', id='name')
         div.spaceAbove
-            label(for='email') Email:
+            label(for='name') Last Name:
+            input.leftSpace(name='lastname', id='name')
+        div.spaceAbove
+            label(for='email') Email Address:
             input.leftSpace(name='email', id='email')
         div.spaceAbove
             label(for='password') Password:
             input.leftSpace(name='password', type='password', id='password')
         div.spaceAbove
-            label(for='password2') Confirm Password:
+            label(for='password2') Confirm PW:
             input.leftSpace(name='password2', type='password', id='password2')
         button.generalButton.spaceAbove Register
